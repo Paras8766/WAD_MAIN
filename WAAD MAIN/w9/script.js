@@ -1,52 +1,62 @@
-const weatherData = {
-    pune: {
-        temperature: "28°C",
-        humidity: "65%",
-        condition: "Cloudy"
-    },
-    mumbai: {
-        temperature: "31°C",
-        humidity: "78%",
-        condition: "Humid"
-    },
-    delhi: {
-        temperature: "35°C",
-        humidity: "45%",
-        condition: "Sunny"
-    },
-    bangalore: {
-        temperature: "24°C",
-        humidity: "60%",
-        condition: "Pleasant"
-    },
-    chennai: {
-        temperature: "33°C",
-        humidity: "80%",
-        condition: "Hot & Humid"
-    }
-};
+async function getWeather() {
 
-function getWeather() {
-    const city = document.getElementById("city").value.trim().toLowerCase();
+    const city = document.getElementById("city")
+        .value
+        .trim()
+        .toLowerCase();
 
-    $("#result").hide();
+    const result = document.getElementById("result");
 
-    setTimeout(function () {
+    result.style.display = "none";
+
+    try {
+
+        // AJAX request using fetch()
+        const response = await fetch("weather.json");
+
+        // Convert JSON response to JavaScript object
+        const weatherData = await response.json();
+
         if (weatherData[city]) {
+
             const data = weatherData[city];
 
-            $("#result").html(`
+            result.innerHTML = `
                 <h3>${city.toUpperCase()}</h3>
-                <p><strong>Temperature:</strong> ${data.temperature}</p>
-                <p><strong>Humidity:</strong> ${data.humidity}</p>
-                <p><strong>Condition:</strong> ${data.condition}</p>
-            `);
+
+                <p>
+                    <strong>Temperature:</strong>
+                    ${data.temperature}
+                </p>
+
+                <p>
+                    <strong>Humidity:</strong>
+                    ${data.humidity}
+                </p>
+
+                <p>
+                    <strong>Condition:</strong>
+                    ${data.condition}
+                </p>
+            `;
+
         } else {
-            $("#result").html(`
-                <p class="error">City not found in repository!</p>
-            `);
+
+            result.innerHTML = `
+                <p class="error">
+                    City not found in repository!
+                </p>
+            `;
         }
 
-        $("#result").fadeIn();
-    }, 1000);
+    } catch (error) {
+
+        result.innerHTML = `
+            <p class="error">
+                Error loading weather data!
+            </p>
+        `;
+    }
+
+    result.style.display = "block";
 }

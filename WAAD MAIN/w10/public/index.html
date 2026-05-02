@@ -4,7 +4,6 @@
 
     <title>MongoDB To-Do List</title>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
 
@@ -77,130 +76,92 @@
 
 <script>
 
-    // LOAD TASKS
-    $(document).ready(function () {
+const taskList = document.getElementById("taskList");
+const taskInput = document.getElementById("taskInput");
 
-        fetchTasks();
+document.addEventListener("DOMContentLoaded", fetchTasks);
+
+async function fetchTasks() {
+
+    const res = await fetch("/tasks");
+
+    const tasks = await res.json();
+
+    taskList.innerHTML = tasks.map(task => `
+
+        <li>
+
+            <span>${task.text}</span>
+
+            <div class="btns">
+
+                <button onclick="updateTask('${task._id}','${task.text}')">
+                    Update
+                </button>
+
+                <button onclick="deleteTask('${task._id}')">
+                    Delete
+                </button>
+
+            </div>
+
+        </li>
+
+    `).join("");
+}
+
+async function addTask() {
+
+    if (!taskInput.value.trim()) return alert("Enter task");
+
+    await fetch("/addTask", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            task: taskInput.value
+        })
     });
 
-    /* =========================
-       FETCH TASKS
-    ========================= */
+    taskInput.value = "";
 
-    function fetchTasks() {
+    fetchTasks();
+}
 
-        $.ajax({
+async function updateTask(id, oldTask) {
 
-            url: "/tasks",
-            type: "GET",
+    const updatedTask = prompt("Update Task", oldTask);
 
-            success: function(tasks) {
+    if (!updatedTask) return;
 
-                $("#taskList").html("");
+    await fetch("/updateTask/" + id, {
 
-                tasks.forEach(task => {
+        method: "PUT",
 
-                    $("#taskList").append(`
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-                        <li>
+        body: JSON.stringify({
+            task: updatedTask
+        })
+    });
 
-                            <span>${task.text}</span>
+    fetchTasks();
+}
 
-                            <div class="btns">
+async function deleteTask(id) {
 
-                                <button onclick="updateTask('${task._id}', '${task.text}')">
-                                    Update
-                                </button>
+    await fetch("/deleteTask/" + id, {
+        method: "DELETE"
+    });
 
-                                <button onclick="deleteTask('${task._id}')">
-                                    Delete
-                                </button>
-
-                            </div>
-
-                        </li>
-                    `);
-                });
-            }
-        });
-    }
-
-    /* =========================
-       ADD TASK
-    ========================= */
-
-    function addTask() {
-
-        let task = $("#taskInput").val();
-
-        if(task.trim() === "") {
-
-            alert("Enter task");
-            return;
-        }
-
-        $.ajax({
-
-            url: "/addTask",
-            type: "POST",
-
-            data: {
-                task: task
-            },
-
-            success: function() {
-
-                $("#taskInput").val("");
-
-                fetchTasks();
-            }
-        });
-    }
-
-    /* =========================
-       UPDATE TASK
-    ========================= */
-
-    function updateTask(id, oldTask) {
-
-        let updatedTask = prompt("Update Task", oldTask);
-
-        if(updatedTask != null) {
-
-            $.ajax({
-
-                url: "/updateTask/" + id,
-                type: "PUT",
-
-                data: {
-                    task: updatedTask
-                },
-
-                success: function() {
-
-                    fetchTasks();
-                }
-            });
-        }
-    }
-
-    /* =========================
-       DELETE TASK
-    ========================= */
-
-    function deleteTask(id) {
-
-        $.ajax({
-
-            url: "/deleteTask/" + id,
-            type: "DELETE",
-
-            success: function() {
-
-                fetchTasks();
-            }
-        });
-    }
+    fetchTasks();
+}
 
 </script>
 
