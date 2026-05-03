@@ -1,45 +1,62 @@
 const express = require("express");
+
 const app = express();
-const PORT = 3001;
 
 app.use(express.json());
+
 app.use(express.static("public"));
 
 const users = [];
 
-// Register
+/* GET USERS */
+
+app.get("/users", (req, res) => res.json(users));
+
+/* REGISTER */
+
 app.post("/register", (req, res) => {
   const { name, email, password, mobile, dob, city, address } = req.body;
 
-  if (!email || !password) return res.status(400).json({ msg: "Required" });
+  if (!email || !password) {
+    return res.status(400).json({
+      message: "Email and password required",
+    });
+  }
 
-  if (users.find((u) => u.email === email))
-    return res.status(409).json({ msg: "Exists" });
+  if (users.find((u) => u.email === email)) {
+    return res.status(409).json({
+      message: "User already exists",
+    });
+  }
 
   users.push({ name, email, password, mobile, dob, city, address });
-  res.status(201).json({ msg: "Registered" });
+
+  res.status(201).json({
+    message: "Registered",
+  });
 });
 
-// Login
+/* LOGIN */
+
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
   const user = users.find((u) => u.email === email && u.password === password);
 
-  if (!user) return res.status(401).json({ msg: "Invalid" });
+  if (!user) {
+    return res.status(401).json({
+      message: "Invalid login",
+    });
+  }
 
-  res.json({ msg: "Success" });
+  res.json({
+    message: "Login success",
+  });
 });
 
-// Get users
-app.get("/users", (req, res) => {
-  res.json(users);
-});
-
+/* START SERVER */
 app.get("/", (req, res) => {
   res.redirect("/login.html");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+app.listen(3001, () => console.log("Server running: http://localhost:3001"));
