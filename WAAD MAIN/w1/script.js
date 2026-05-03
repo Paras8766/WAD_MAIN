@@ -51,9 +51,9 @@ function displayTable(page) {
 
   paginatedItems.forEach((item) => {
     let row = `<tr>
-            <td><img src="${item.img}" alt="Product"></td>
+            <td><img src="${item.img}" alt="Product Image"  onerror="this.onerror=null; this.src='watch.png';"></td>
             <td>${item.name}</td>
-            <td>${item.price}</td>
+            <td>${item.price}</td>      
             <td>${item.desc}</td>
         </tr>`;
     tableBody.innerHTML += row;

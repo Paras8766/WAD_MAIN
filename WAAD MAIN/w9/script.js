@@ -1,4 +1,4 @@
-async function getWeather() {
+function getWeather() {
 
     const city = document.getElementById("city")
         .value
@@ -9,54 +9,51 @@ async function getWeather() {
 
     result.style.display = "none";
 
-    try {
+    const xhr = new XMLHttpRequest();
 
-        // AJAX request using fetch()
-        const response = await fetch("weather.json");
+    xhr.open("GET", "weather.json", true);
 
-        // Convert JSON response to JavaScript object
-        const weatherData = await response.json();
+    xhr.onload = function () {
 
-        if (weatherData[city]) {
+        if (xhr.status === 200) {
 
-            const data = weatherData[city];
+            const weatherData = JSON.parse(xhr.responseText);
 
-            result.innerHTML = `
-                <h3>${city.toUpperCase()}</h3>
+            if (weatherData[city]) {
 
-                <p>
-                    <strong>Temperature:</strong>
-                    ${data.temperature}
-                </p>
+                const data = weatherData[city];
 
-                <p>
-                    <strong>Humidity:</strong>
-                    ${data.humidity}
-                </p>
+                result.innerHTML = `
+                    <h3>${city.toUpperCase()}</h3>
 
-                <p>
-                    <strong>Condition:</strong>
-                    ${data.condition}
-                </p>
-            `;
+                    <p><strong>Temperature:</strong> ${data.temperature}</p>
+                    <p><strong>Humidity:</strong> ${data.humidity}</p>
+                    <p><strong>Condition:</strong> ${data.condition}</p>
+                `;
+            } else {
 
+                result.innerHTML = `
+                    <p class="error">City not found in repository!</p>
+                `;
+            }
         } else {
 
             result.innerHTML = `
-                <p class="error">
-                    City not found in repository!
-                </p>
+                <p class="error">Error loading weather data!</p>
             `;
         }
 
-    } catch (error) {
+        result.style.display = "block";
+    };
+
+    xhr.onerror = function () {
 
         result.innerHTML = `
-            <p class="error">
-                Error loading weather data!
-            </p>
+            <p class="error">Error loading weather data!</p>
         `;
-    }
 
-    result.style.display = "block";
+        result.style.display = "block";
+    };
+
+    xhr.send();
 }

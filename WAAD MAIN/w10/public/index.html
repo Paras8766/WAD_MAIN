@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MongoDB To-Do List</title>
 
@@ -72,98 +75,7 @@
 
     <ul id="taskList"></ul>
 
-</div>
-
-<script>
-
-const taskList = document.getElementById("taskList");
-const taskInput = document.getElementById("taskInput");
-
-document.addEventListener("DOMContentLoaded", fetchTasks);
-
-async function fetchTasks() {
-
-    const res = await fetch("/tasks");
-
-    const tasks = await res.json();
-
-    taskList.innerHTML = tasks.map(task => `
-
-        <li>
-
-            <span>${task.text}</span>
-
-            <div class="btns">
-
-                <button onclick="updateTask('${task._id}','${task.text}')">
-                    Update
-                </button>
-
-                <button onclick="deleteTask('${task._id}')">
-                    Delete
-                </button>
-
-            </div>
-
-        </li>
-
-    `).join("");
-}
-
-async function addTask() {
-
-    if (!taskInput.value.trim()) return alert("Enter task");
-
-    await fetch("/addTask", {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-            task: taskInput.value
-        })
-    });
-
-    taskInput.value = "";
-
-    fetchTasks();
-}
-
-async function updateTask(id, oldTask) {
-
-    const updatedTask = prompt("Update Task", oldTask);
-
-    if (!updatedTask) return;
-
-    await fetch("/updateTask/" + id, {
-
-        method: "PUT",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-            task: updatedTask
-        })
-    });
-
-    fetchTasks();
-}
-
-async function deleteTask(id) {
-
-    await fetch("/deleteTask/" + id, {
-        method: "DELETE"
-    });
-
-    fetchTasks();
-}
-
-</script>
+    <script src="script.js" defer></script>
 
 </body>
 </html>

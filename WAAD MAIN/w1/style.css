@@ -10,13 +10,12 @@ body {
 }
 
 table {
-    width: 100%;
+    /* width: 100%; */
     border-collapse: collapse;
-    min-width: 600px;
+    /* min-width: 600px; */
 }
 
-th,
-td {
+th,td {
     border: 1px solid #ddd;
     padding: 12px;
     text-align: left;
@@ -54,8 +53,8 @@ img {
     cursor: pointer;
 }
 
-.pagination button.active {
-    background-color: #007bff;
-    color: white;
+/* .pagination button.active {
+    background-color: blue;
+    color: black;
     border: none;
-}
+} */
