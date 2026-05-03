@@ -32,6 +32,11 @@ button{
     cursor: pointer;
 }
 
+#loginBtn{
+    display: none;
+    background: #1565c0;
+}
+
 #msg{
     text-align: center;
     color: green;

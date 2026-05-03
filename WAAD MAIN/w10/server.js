@@ -1,72 +1,71 @@
 const express = require("express");
-const path = require("path");
+
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
-// In-memory storage (resets when server restarts)
 const tasks = [];
 let nextId = 1;
 
-/* ROUTES */
+/* GET TASKS */
 
-app.get("/tasks", async (req, res) => {
-
-    res.json(tasks);
+app.get("/tasks", (req, res) => {
+  res.json(tasks);
 });
 
-app.post("/addTask", async (req, res) => {
+/* ADD TASK */
 
-    const text = req.body.task;
+app.post("/addTask", (req, res) => {
+  tasks.push({
+    _id: String(nextId++),
+    text: req.body.task,
+  });
 
-    if (!text) {
-        return res.status(400).json({ message: "Task text required" });
-    }
-
-    const task = {
-        _id: String(nextId++),
-        text: text
-    };
-
-    tasks.push(task);
-
-    res.json({ message: "Task Added" });
+  res.json({
+    message: "Task Added",
+  });
 });
 
-app.put("/updateTask/:id", async (req, res) => {
+/* UPDATE TASK */
 
-    const id = req.params.id;
-    const text = req.body.task;
+app.put("/updateTask/:id", (req, res) => {
+  const task = tasks.find((t) => t._id === req.params.id);
 
-    const task = tasks.find(t => t._id === id);
+  if (task) {
+    task.text = req.body.task;
 
-    if (!task) {
-        return res.status(404).json({ message: "Task not found" });
-    }
+    return res.json({
+      message: "Task Updated",
+    });
+  }
 
-    task.text = text;
-
-    res.json({ message: "Task Updated" });
+  res.status(404).json({
+    message: "Task not found",
+  });
 });
 
-app.delete("/deleteTask/:id", async (req, res) => {
+/* DELETE TASK */
 
-    const id = req.params.id;
-    const index = tasks.findIndex(t => t._id === id);
+app.delete("/deleteTask/:id", (req, res) => {
+  const index = tasks.findIndex((t) => t._id === req.params.id);
 
-    if (index === -1) {
-        return res.status(404).json({ message: "Task not found" });
-    }
-
+  if (index !== -1) {
     tasks.splice(index, 1);
 
-    res.json({ message: "Task Deleted" });
+    return res.json({
+      message: "Task Deleted",
+    });
+  }
+
+  res.status(404).json({
+    message: "Task not found",
+  });
 });
 
-app.listen(3000, () =>
-    console.log("Server running on http://localhost:3000")
-);
+/* START SERVER */
+
+app.listen(3000, () => console.log("Server running on http://localhost:3000"));

@@ -5,14 +5,11 @@ const xhr = new XMLHttpRequest();
 xhr.open("GET", "/users", true);
 
 xhr.onload = function () {
+  if (xhr.status === 200) {
+    const users = JSON.parse(xhr.responseText);
 
-    if (xhr.status === 200) {
-
-        const users = JSON.parse(xhr.responseText);
-
-        users.forEach(u => {
-
-            table.innerHTML += `
+    users.forEach((u) => {
+      table.innerHTML += `
     
     <tr>
 
@@ -31,13 +28,13 @@ xhr.onload = function () {
     </tr>
 
     `;
-
-        });
-    }
+    });
+  }
 };
 
 xhr.onerror = function () {
-    table.innerHTML = "<tr><td colspan='6'>Server not running (start server.js)</td></tr>";
+  table.innerHTML =
+    "<tr><td colspan='6'>Server not running (start server.js)</td></tr>";
 };
 
 xhr.send();

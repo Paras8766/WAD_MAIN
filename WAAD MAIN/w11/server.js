@@ -1,51 +1,51 @@
 const express = require("express");
-const path = require("path");
 
 const app = express();
+const PORT = 3001;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname)));
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static("public"));
 
 // In-memory storage (resets when server restarts)
 const users = [];
 
+// Register
 app.post("/register", (req, res) => {
+  const { email, password } = req.body;
 
-    const user = req.body;
+  if (!email || !password) return res.status(400).json({ msg: "Required" });
 
-    if (!user || !user.email || !user.password) {
-        return res.status(400).json({ message: "Email and password required" });
-    }
+  if (users.find((u) => u.email === email))
+    return res.status(409).json({ msg: "Exists" });
 
-    const exists = users.find(u => u.email === user.email);
-
-    if (exists) {
-        return res.status(409).json({ message: "User already exists" });
-    }
-
-    users.push(user);
-
-    res.status(201).json({ message: "Registered" });
+  users.push({ email, password });
+  res.json({ msg: "Registered" });
 });
 
 app.post("/login", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
 
-    const email = req.body.email;
-    const password = req.body.password;
+  const user = users.find((u) => u.email === email && u.password === password);
 
-    const user = users.find(u => u.email === email && u.password === password);
+  if (!user) {
+    return res.status(401).json({ message: "Invalid login" });
+  }
 
-    if (!user) {
-        return res.status(401).json({ message: "Invalid login" });
-    }
-
-    res.json({ message: "Login success" });
+  res.json({ message: "Login success" });
 });
 
 app.get("/users", (req, res) => {
-    res.json(users);
+  res.json(users);
 });
 
-app.listen(3001, () => {
-    console.log("Server running: http://localhost:3001");
+app.get("/", (req, res) => {
+  res.redirect("/login.html");
+});
+
+app.listen(PORT, () => {
+  const url = `http://localhost:${PORT}`;
+  console.log(`Server running: ${url}`);
 });

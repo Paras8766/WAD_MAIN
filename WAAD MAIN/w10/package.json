@@ -1,8 +1,8 @@
 {
   "name": "w10",
   "version": "1.0.0",
-  "description": "User types task ↓ Frontend sends AJAX request ↓ Express server receives request ↓ MongoDB stores/retrieves data ↓ Server sends response ↓ Frontend updates UI dynamically",
-  "main": "script.js",
+  "description": "User types task\r ↓\r Frontend sends AJAX request\r ↓\r Express server receives request\r ↓\r Local variable (array) stores/retrieves data\r ↓\r Server sends response\r ↓\r Frontend updates UI dynamically",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

@@ -7,16 +7,22 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="css/about.css" />
+<style>
+    .ui-header { background-color: #2196F3 !important; }
+    .ui-navbar a.ui-btn-active { background-color: #1976D2 !important; border-bottom: 2px solid #ffc107; }
+    .ui-footer { background-color: #333 !important; }
+</style>
 </head>
 <body>
 <div data-role="page" id="about">
-    <div data-role="header" class="header-bg">
+    <div data-role="header" data-position="fixed" class="header-bg">
         <a href="index.html" data-ajax="false"
         class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all">Home</a>
         <h1>About Us</h1>
         <div data-role="navbar" style="margin-top:8px;">
             <ul>
                 <li><a href="index.html" data-transition="fade" data-ajax="false">Home</a></li>
+                <li><a href="about.html" data-transition="slide" data-ajax="false" class="ui-btn-active">About</a></li>
                 <li><a href="academics.html" data-transition="slide" data-ajax="false">Departments</a></li>
                 <li><a href="courses.html" data-transition="slide" data-ajax="false">Courses</a></li>
                 <li><a href="contact.html" data-transition="slide" data-ajax="false">Contact</a></li>
@@ -37,11 +43,25 @@
                 <h3>Mission</h3>
                 <p>Impart high-quality technical education, encourage research, and foster industry collaboration.</p>
             </div>
+            <div data-role="collapsible">
+                <h3>History & Founding</h3>
+                <p>Established in 1983 by the Society for Computer Technology and Research (SCTR), PICT has been a pioneer in technical education in India. Over four decades, we have grown into a premier institution known worldwide for academic excellence.</p>
+            </div>
+            <div data-role="collapsible">
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>AICTE approved and NBA accredited</li>
+                    <li>Consistently ranked among top engineering colleges in India</li>
+                    <li>100% placement record for graduates</li>
+                    <li>Global partnerships with international universities</li>
+                    <li>Active innovation and startup incubation center</li>
+                </ul>
+            </div>
         </div>
         <a href="index.html" data-transition="slide" data-ajax="false" class="ui-btn ui-btn-inline ui-corner-all ui-icon-back ui-btn-icon-left">Back to Home</a>
     </div>
 
-    <div data-role="footer" class="footer-bg">
+    <div data-role="footer" data-position="fixed" class="footer-bg">
         <h4>&copy; 2026 PICT Pune</h4>
     </div>
 </div>

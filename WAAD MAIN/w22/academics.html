@@ -7,10 +7,15 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="css/academics.css" />
+<style>
+    .ui-header { background-color: #2196F3 !important; }
+    .ui-navbar a.ui-btn-active { background-color: #1976D2 !important; border-bottom: 2px solid #ffc107; }
+    .ui-footer { background-color: #333 !important; }
+</style>
 </head>
 <body>
 <div data-role="page" id="academics">
-    <div data-role="header" class="header-bg">
+    <div data-role="header" data-position="fixed" class="header-bg">
         <a href="index.html" data-ajax="false" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all">Home</a>
         <h1>Academics</h1>
         <div data-role="navbar" style="margin-top:8px;">
@@ -18,6 +23,7 @@
                 <li><a href="index.html" data-transition="fade" data-ajax="false">Home</a></li>
                 <li><a href="about.html" data-transition="slide" data-ajax="false">About</a></li>
                 <li><a href="courses.html" data-transition="slide" data-ajax="false">Courses</a></li>
+                <li><a href="academics.html" data-transition="slide" data-ajax="false" class="ui-btn-active">Departments</a></li>
                 <li><a href="contact.html" data-transition="slide" data-ajax="false">Contact</a></li>
             </ul>
         </div>
@@ -28,21 +34,48 @@
         <div data-role="collapsibleset">
             <div data-role="collapsible">
                 <h3>Computer Engineering (CE)</h3>
-                <p>The Department of Computer Engineering is the largest and most prestigious department at PICT, providing cutting-edge knowledge in AI, Machine Learning, Data Science, and more.</p>
+                <p>The Department of Computer Engineering is the largest and most prestigious at PICT.</p>
+                <p><b>Focus Areas:</b></p>
+                <ul>
+                    <li>Artificial Intelligence & Machine Learning</li>
+                    <li>Data Science & Analytics</li>
+                    <li>Software Engineering</li>
+                    <li>Cybersecurity</li>
+                    <li>Cloud Computing</li>
+                </ul>
+                <p><b>Facilities:</b> Advanced computing labs, AI lab, development tools</p>
             </div>
             <div data-role="collapsible">
                 <h3>Information Technology (IT)</h3>
-                <p>Equipped with state-of-the-art laboratories and highly qualified faculty, the IT department prepares students for modern software development and cloud technologies.</p>
+                <p>Prepares students for modern software development and emerging technologies.</p>
+                <p><b>Focus Areas:</b></p>
+                <ul>
+                    <li>Web Development</li>
+                    <li>Cloud Computing & AWS</li>
+                    <li>Database Management</li>
+                    <li>DevOps & Deployment</li>
+                    <li>Mobile Application Development</li>
+                </ul>
+                <p><b>Facilities:</b> Development labs, cloud labs, modern tools</p>
             </div>
             <div data-role="collapsible">
                 <h3>Electronics & Telecommunications (E&TC)</h3>
-                <p>Focuses on strong fundamentals in hardware, embedded systems, IoT, and communication technologies.</p>
+                <p>Focuses on hardware fundamentals, embedded systems, and communications.</p>
+                <p><b>Focus Areas:</b></p>
+                <ul>
+                    <li>Embedded Systems & Microcontrollers</li>
+                    <li>Internet of Things (IoT)</li>
+                    <li>VLSI Design</li>
+                    <li>Signal Processing</li>
+                    <li>Wireless Communication</li>
+                </ul>
+                <p><b>Facilities:</b> Embedded lab, FPGA lab, communication lab, testing equipment</p>
             </div>
         </div>
         <a href="index.html" data-transition="slide" data-ajax="false" class="ui-btn ui-btn-inline ui-corner-all ui-icon-back ui-btn-icon-left">Back</a>
     </div>
 
-    <div data-role="footer" class="footer-bg">
+    <div data-role="footer" data-position="fixed" class="footer-bg">
         <h4>&copy; 2026 PICT Pune</h4>
     </div>
 </div>

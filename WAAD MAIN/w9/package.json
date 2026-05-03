@@ -1,16 +1,16 @@
 {
-  "name": "w11-simple-backend",
+  "name": "w9-app",
   "version": "1.0.0",
+  "description": "Express server application",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "dependencies": {
-    "express": "^4.22.1"
-  },
-  "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.1"
+  },
   "type": "commonjs"
 }

@@ -7,10 +7,15 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="css/contact.css" />
+<style>
+    .ui-header { background-color: #2196F3 !important; }
+    .ui-navbar a.ui-btn-active { background-color: #1976D2 !important; border-bottom: 2px solid #ffc107; }
+    .ui-footer { background-color: #333 !important; }
+</style>
 </head>
 <body>
 <div data-role="page" id="contact">
-    <div data-role="header" class="header-bg">
+    <div data-role="header" data-position="fixed" class="header-bg">
         <a href="index.html" data-ajax="false" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all">Home</a>
         <h1>Contact Us</h1>
         <div data-role="navbar" style="margin-top:8px;">
@@ -19,17 +24,37 @@
                 <li><a href="about.html" data-transition="slide" data-ajax="false">About</a></li>
                 <li><a href="academics.html" data-transition="slide" data-ajax="false">Departments</a></li>
                 <li><a href="courses.html" data-transition="slide" data-ajax="false">Courses</a></li>
+                <li><a href="contact.html" data-transition="slide" data-ajax="false" class="ui-btn-active">Contact</a></li>
             </ul>
         </div>
     </div>
 
     <div data-role="main" class="ui-content">
         <h2>Reach Out to Us</h2>
-        <p><strong>Address:</strong> Survey No. 27, Near Trimurti Chowk, Dhankawadi, Pune, Maharashtra 411043</p>
-        <p><strong>Phone:</strong> +91 20 2437 1101</p>
-        <p><strong>Email:</strong> principal@pict.edu</p>
+        <!-- Contact Information Sections -->
+        <div data-role="collapsibleset">
+            <div data-role="collapsible" data-collapsed="false">
+                <h3>Address</h3>
+                <p>Survey No. 27, Near Trimurti Chowk<br>
+                   Dhankawadi, Pune<br>
+                   Maharashtra 411043, India</p>
+            </div>
+            <div data-role="collapsible">
+                <h3>Phone & Email</h3>
+                <p><b>Main Office:</b> +91-20-2437-1101</p>
+                <p><b>Email:</b> principal@pict.edu</p>
+                <p><b>Admissions:</b> admissions@pict.edu</p>
+            </div>
+            <div data-role="collapsible">
+                <h3>Office Hours</h3>
+                <p><b>Monday - Friday:</b> 9:00 AM - 5:00 PM</p>
+                <p><b>Saturday:</b> 10:00 AM - 2:00 PM</p>
+                <p><b>Sunday:</b> Closed</p>
+            </div>
+        </div>
 
         <form method="post" action="#">
+            <h3>Send us a Message</h3>
             <div class="ui-field-contain">
                 <label for="name">Name:</label>
                 <input type="text" name="name" id="name">
@@ -44,7 +69,7 @@
         </form>
     </div>
 
-    <div data-role="footer" class="footer-bg">
+    <div data-role="footer" data-position="fixed" class="footer-bg">
         <h4>&copy; 2026 PICT Pune</h4>
     </div>
 </div>
