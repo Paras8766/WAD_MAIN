@@ -1,222 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Event Registration</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Event Registration</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<style>
-body { background: #f5f7fa; }
-.form-container { max-width: 650px; margin: auto; }
-</style>
-</head>
+  <body class="bg-light py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-7 col-lg-6">
+          <div class="bg-white p-4 rounded shadow-sm">
+            <h3 class="text-center mb-3">Event Registration</h3>
 
-<body>
+            <form class="needs-validation" novalidate>
+              <div class="form-floating mb-3">
+                <input
+                  id="name"
+                  class="form-control"
+                  type="text"
+                  placeholder="Full Name"
+                  required
+                  pattern="[A-Z][A-Za-z ]*"
+                  data-bs-toggle="tooltip"
+                  title="Start with capital letter"
+                />
+                <label for="name">Full Name</label>
+                <div class="invalid-feedback">Start with capital, letters only.</div>
+              </div>
 
-<div class="container mt-5">
-  <div class="form-container bg-white p-4 rounded shadow">
+              <div class="form-floating mb-3">
+                <input
+                  id="email"
+                  class="form-control"
+                  type="email"
+                  placeholder="Email"
+                  required
+                  data-bs-toggle="tooltip"
+                  title="Example: abc@gmail.com"
+                />
+                <label for="email">Email</label>
+                <div class="invalid-feedback">Enter a valid email.</div>
+              </div>
 
-    <h3 class="text-center mb-4">Event Registration</h3>
+              <div class="form-floating mb-3">
+                <input
+                  id="phone"
+                  class="form-control"
+                  type="tel"
+                  inputmode="numeric"
+                  placeholder="Phone"
+                  required
+                  pattern="[0-9]{10}"
+                  data-bs-toggle="tooltip"
+                  title="10 digit mobile number"
+                />
+                <label for="phone">Phone</label>
+                <div class="invalid-feedback">Enter exactly 10 digits.</div>
+              </div>
 
-    <form class="needs-validation" novalidate>
+              <div class="mb-3" id="genderGroup">
+                <div class="mb-1">Gender</div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="gMale"
+                    value="Male"
+                    required
+                  />
+                  <label class="form-check-label" for="gMale">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="gFemale"
+                    value="Female"
+                    required
+                  />
+                  <label class="form-check-label" for="gFemale">Female</label>
+                </div>
+              </div>
 
-      <!-- Name -->
-      <div class="form-floating mb-3">
-        <input type="text" id="name" class="form-control" placeholder="Name"
-        data-bs-toggle="tooltip" title="Start with capital, only letters" required>
-        <label>Full Name</label>
-        <div class="invalid-feedback"></div>
-      </div>
+              <div class="form-floating mb-3">
+                <select
+                  id="city"
+                  class="form-select"
+                  required
+                  data-bs-toggle="tooltip"
+                  title="Select your city"
+                >
+                  <option value="">Choose</option>
+                  <option>Pune</option>
+                  <option>Mumbai</option>
+                  <option>Delhi</option>
+                </select>
+                <label for="city">City</label>
+                <div class="invalid-feedback">Select a city.</div>
+              </div>
 
-      <!-- Email -->
-      <div class="form-floating mb-3">
-        <input type="email" id="email" class="form-control" placeholder="Email"
-        data-bs-toggle="tooltip" title="Enter valid email (abc@gmail.com)" required>
-        <label>Email</label>
-        <div class="invalid-feedback"></div>
-      </div>
+              <div class="form-floating mb-3">
+                <select
+                  id="event"
+                  class="form-select"
+                  required
+                  data-bs-toggle="tooltip"
+                  title="Select event type"
+                >
+                  <option value="">Choose</option>
+                  <option>Workshop</option>
+                  <option>Seminar</option>
+                  <option>Hackathon</option>
+                </select>
+                <label for="event">Event</label>
+                <div class="invalid-feedback">Select an event.</div>
+              </div>
 
-      <!-- Phone -->
-      <div class="form-floating mb-3">
-        <input type="tel" id="phone" class="form-control" placeholder="Phone"
-        maxlength="10"
-        oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-        data-bs-toggle="tooltip" title="Enter 10 digit number" required>
-        <label>Phone</label>
-        <div class="invalid-feedback"></div>
-      </div>
+              <div class="form-floating mb-3">
+                <input
+                  id="date"
+                  class="form-control"
+                  type="date"
+                  placeholder="Date"
+                  required
+                  data-bs-toggle="tooltip"
+                  title="Choose a future date"
+                />
+                <label for="date">Event Date</label>
+                <div class="invalid-feedback">Select a valid date.</div>
+              </div>
 
-      <!-- Gender -->
-      <div class="mb-3">
-        <label class="form-label">Gender</label><br>
-        <div class="form-check form-check-inline">
-          <input type="radio" name="gender" value="male" required>
-          <label>Male</label>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="terms" required />
+                <label class="form-check-label" for="terms">I agree to terms</label>
+                <div class="invalid-feedback">Required.</div>
+              </div>
+
+              <button class="btn btn-primary w-100" type="submit">Register</button>
+            </form>
+          </div>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" name="gender" value="female" required>
-          <label>Female</label>
-        </div>
-        <div class="invalid-feedback d-block"></div>
       </div>
+    </div>
 
-      <!-- City -->
-      <div class="mb-3">
-        <select id="city" class="form-select"
-        data-bs-toggle="tooltip" title="Select your city" required>
-          <option value="">Choose City</option>
-          <option>Pune</option>
-          <option>Mumbai</option>
-          <option>Delhi</option>
-        </select>
-        <div class="invalid-feedback"></div>
-      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // 1) Tooltips
+      document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => {
+        new bootstrap.Tooltip(el);
+      });
 
-      <!-- Address -->
-      <div class="form-floating mb-3">
-        <textarea id="address" class="form-control" style="height:100px"
-        data-bs-toggle="tooltip" title="Enter full address" required></textarea>
-        <label>Address</label>
-        <div class="invalid-feedback"></div>
-      </div>
+      // 2) Date: only today or future
+      const dateInput = document.getElementById("date");
+      dateInput.min = new Date().toISOString().split("T")[0];
 
-      <!-- Event -->
-      <div class="mb-3">
-        <select id="event" class="form-select"
-        data-bs-toggle="tooltip" title="Select event type" required>
-          <option value="">Choose Event</option>
-          <option>Workshop</option>
-          <option>Seminar</option>
-          <option>Hackathon</option>
-        </select>
-        <div class="invalid-feedback"></div>
-      </div>
+      // 3) Validation (simple)
+      const form = document.querySelector("form");
 
-      <!-- Date -->
-      <div class="form-floating mb-3">
-        <input type="date" id="date" class="form-control"
-        data-bs-toggle="tooltip" title="Choose future date" required>
-        <label>Date</label>
-        <div class="invalid-feedback"></div>
-      </div>
-
-      <!-- College -->
-      <div class="mb-3">
-        <input type="text" id="college" class="form-control"
-        data-bs-toggle="tooltip" title="Enter college name" required>
-        <div class="invalid-feedback"></div>
-      </div>
-
-      <!-- Terms -->
-      <div class="form-check mb-3">
-        <input type="checkbox" id="terms" class="form-check-input" required>
-        <label class="form-check-label">Agree to terms</label>
-        <div class="invalid-feedback"></div>
-      </div>
-
-      <button class="btn btn-primary w-100">Register</button>
-
-    </form>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-// TOOLTIP INIT
-document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
-
-// ELEMENTS
-const form = document.querySelector("form");
-const name = document.getElementById("name");
-const email = document.getElementById("email");
-const phone = document.getElementById("phone");
-const date = document.getElementById("date");
-const city = document.getElementById("city");
-const address = document.getElementById("address");
-const event = document.getElementById("event");
-const college = document.getElementById("college");
-
-// HELPERS
-function setInvalid(el, msg){
-  el.classList.add("is-invalid");
-  el.classList.remove("is-valid");
-  el.parentElement.querySelector(".invalid-feedback").innerText = msg;
-}
-function setValid(el){
-  el.classList.remove("is-invalid");
-  el.classList.add("is-valid");
-}
-
-// VALIDATIONS
-function validateName(){
-  if(!/^[A-Z][a-zA-Z ]*$/.test(name.value))
-    return setInvalid(name,"Start with capital, letters only"), false;
-  setValid(name); return true;
-}
-
-function validateEmail(){
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value))
-    return setInvalid(email,"Invalid email"), false;
-  setValid(email); return true;
-}
-
-function validatePhone(){
-  if(!/^[0-9]{10}$/.test(phone.value))
-    return setInvalid(phone,"Enter 10 digits"), false;
-  setValid(phone); return true;
-}
-
-function validateDate(){
-  let today = new Date().toISOString().split("T")[0];
-  if(!date.value || date.value < today)
-    return setInvalid(date,"Future date only"), false;
-  setValid(date); return true;
-}
-
-function validateSelect(el,msg){
-  if(!el.value) return setInvalid(el,msg), false;
-  setValid(el); return true;
-}
-
-function validateText(el,msg){
-  if(!el.value.trim()) return setInvalid(el,msg), false;
-  setValid(el); return true;
-}
-
-// BLUR EVENTS
-name.onblur=validateName;
-email.onblur=validateEmail;
-phone.onblur=validatePhone;
-date.onblur=validateDate;
-city.onblur=()=>validateSelect(city,"Select city");
-event.onblur=()=>validateSelect(event,"Select event");
-address.onblur=()=>validateText(address,"Enter address");
-college.onblur=()=>validateText(college,"Enter college");
-
-// SUBMIT
-form.onsubmit=function(e){
-  let ok=true;
-
-  if(!validateName()) ok=false;
-  if(!validateEmail()) ok=false;
-  if(!validatePhone()) ok=false;
-  if(!validateDate()) ok=false;
-  if(!validateSelect(city,"Select city")) ok=false;
-  if(!validateSelect(event,"Select event")) ok=false;
-  if(!validateText(address,"Enter address")) ok=false;
-  if(!validateText(college,"Enter college")) ok=false;
-
-  if(!document.querySelector('input[name="gender"]:checked')){
-    document.querySelector(".form-check").classList.add("is-invalid");
-    ok=false;
-  }
-
-  if(!ok) e.preventDefault();
-}
-</script>
-
-</body>
+      form.addEventListener("submit", (e) => {
+        if (!form.checkValidity()) e.preventDefault();
+        form.classList.add("was-validated");
+      });
+    </script>
+  </body>
 </html>

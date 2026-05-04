@@ -1,77 +1,72 @@
-:root {
-    --primary: #4f46e5;
-    --dark: #0f172a;
-    --light: #f8fafc;
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
 }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: var(--light);
-    color: var(--dark);
-    line-height: 1.6;
+/* Header */
+header{
+    text-align:center;
+    background:#2c7be5;
+    color:white;
+    padding:20px;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 2rem;
+/* Container */
+.container{
+    width:90%;
+    margin:auto;
 }
 
-header {
-    text-align: center;
-    background: var(--primary);
-    color: white;
-    padding: 3rem;
+/* Sections */
+section{
+    background:white;
+    margin:15px 0;
+    padding:15px;
+    border-radius:8px;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
 }
 
-/* Grid for Learning Paths */
-.path-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin: 2rem 0;
+/* Headings */
+h2{
+    color:#2c7be5;
+    border-bottom:2px solid #2c7be5;
+    padding-bottom:5px;
 }
 
-.path-card {
-    background: white;
-    padding: 1.5rem;
-    border: 2px solid var(--primary);
-    border-radius: 8px;
+/* Lists */
+ul, ol{
+    padding-left:20px;
 }
 
-/* Dashboard Layout */
-.content-wrapper {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 2rem;
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
 }
 
-.sidebar {
-    background: #e2e8f0;
-    padding: 1rem;
-    border-radius: 8px;
-    height: fit-content;
+th{
+    background:#2c7be5;
+    color:white;
 }
 
-/* Table Styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+}
+section:hover {
+    transform:scale(1.05);
 }
 
-th {
-    background: var(--primary);
-    color: white;
-    padding: 12px;
+tr:hover{
+    background:#f1f1f1;
 }
 
-td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-tr:nth-child(even) {
-    background: #f1f5f9;
+/* Footer */
+footer{
+    text-align:center;
+    background:#333;
+    color:white;
+    padding:10px;
 }
