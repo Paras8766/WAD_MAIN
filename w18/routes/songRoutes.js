@@ -50,14 +50,12 @@ router.get("/delete/:name", async (req, res) => {
 
 // h) Add new song
 router.get("/add", async (req, res) => {
-    const song = new Song({
+    await Song.create({
         Songname: "Apna Bana Le",
         Film: "Bhediya",
         Music_director: "Sachin-Jigar",
         Singer: "Arijit Singh"
     });
-
-    await song.save();
     res.json({ message: "New Song Added" });
 });
 
@@ -94,7 +92,7 @@ router.get("/table", async (req, res) => {
 
     let html = `
     <h2>Song Details</h2>
-    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+    <table border="1" style="border-collapse: collapse; width: 100%; ">
         <tr>
             <th>Sr</th><th>Song</th><th>Film</th><th>Director</th><th>Singer</th><th>Actor</th><th>Actress</th>
         </tr>
