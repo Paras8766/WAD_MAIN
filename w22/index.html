@@ -1,75 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pune Institute of Computer Technology (PICT)</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- jQuery Mobile CSS -->
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    
-    <!-- jQuery Mobile JS -->
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>PICT Mobile Website</title>
 
-    <link rel="stylesheet" href="css/index.css" />
-    <style>
-        .ui-header { background-color: #2196F3 !important; }
-        .ui-navbar a.ui-btn-active { background-color: #1976D2 !important; border-bottom: 2px solid #ffc107; }
-        .ui-footer { background-color: #333 !important; }
-    </style>
+    <!-- Local jQuery Mobile CSS -->
+    <link rel="stylesheet" href="jquery.mobile.min.css">
+
+    <!-- Local JS -->
+    <script src="jquery.min.js"></script>
+    <script src="jquery.mobile.min.js"></script>
 </head>
+
 <body>
 
 <!-- HOME PAGE -->
 <div data-role="page" id="home">
-    <div data-role="header" data-position="fixed" class="header-bg" style="text-align: center; padding: 10px 0;">
-        <img src="asset/images/logo.jpg" alt="PICT Logo" style="height: 60px;">
-        <h1 style="margin-top: 5px;">PICT Pune</h1>
-        <div data-role="navbar" style="margin-top:8px;">
-            <ul>
-                <li><a href="index.html" data-transition="fade" data-ajax="false" class="ui-btn-active">Home</a></li>
-                <li><a href="about.html" data-transition="slide" data-ajax="false">About</a></li>
-                <li><a href="academics.html" data-transition="slide" data-ajax="false">Departments</a></li>
-                <li><a href="courses.html" data-transition="slide" data-ajax="false">Courses</a></li>
-                <li><a href="contact.html" data-transition="slide" data-ajax="false">Contact</a></li>
-            </ul>
+
+    <div data-role="header" data-theme="b">
+        <h1>PICT Pune</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home" class="ui-btn-active">Home</a></li>
+            <li><a href="#about" data-transition="slide">About</a></li>
+            <li><a href="#courses" data-transition="fade">Courses</a></li>
+            <li><a href="#dept" data-transition="flip">Departments</a></li>
+            <li><a href="#contact" data-transition="pop">Contact</a></li>
+        </ul>
+    </div>
+
+    <div data-role="content">
+        <h2>Welcome to PICT</h2>
+        <p>Pune Institute of Computer Technology is a top engineering college in Pune.</p>
+    </div>
+
+</div>
+
+<!-- ABOUT PAGE -->
+<div data-role="page" id="about">
+
+    <div data-role="header" data-theme="b">
+        <h1>About Us</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about" class="ui-btn-active" data-transition="slide">About</a></li>
+            <li><a href="#courses" data-transition="fade">Courses</a></li>
+            <li><a href="#dept" data-transition="flip">Departments</a></li>
+            <li><a href="#contact" data-transition="pop">Contact</a></li>
+        </ul>
+    </div>
+
+    <div data-role="content">
+        <p>PICT is known for academic excellence, placements, and strong technical culture.</p>
+    </div>
+
+</div>
+
+<!-- COURSES PAGE -->
+<div data-role="page" id="courses">
+
+    <div data-role="header" data-theme="b">
+        <h1>Courses Offered</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about" data-transition="slide">About</a></li>
+            <li><a href="#courses" class="ui-btn-active" data-transition="fade">Courses</a></li>
+            <li><a href="#dept" data-transition="flip">Departments</a></li>
+            <li><a href="#contact" data-transition="pop">Contact</a></li>
+        </ul>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview">
+            <li>Computer Engineering</li>
+            <li>Information Technology</li>
+            <li>Electronics & Telecommunication</li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- DEPARTMENTS PAGE -->
+<div data-role="page" id="dept">
+
+    <div data-role="header" data-theme="b">
+        <h1>Departments</h1>
+    </div>
+
+    <!-- Navbar -->
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about" data-transition="slide">About</a></li>
+            <li><a href="#courses" data-transition="fade">Courses</a></li>
+            <li><a href="#dept" class="ui-btn-active" data-transition="flip">Departments</a></li>
+            <li><a href="#contact" data-transition="pop">Contact</a></li>
+        </ul>
+    </div>
+
+    <div data-role="content">
+
+        <div data-role="collapsible">
+            <h3>Computer Engineering</h3>
+            <p>Focus on software development and systems.</p>
         </div>
-    </div>
 
-    <div data-role="main" class="ui-content">
-        <!-- Banner Image -->
-        <img src="asset/images/banner.jpg" alt="PICT Campus Banner" class="banner" style="width: 100%; border-radius: 8px;" onerror="this.src='https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80'">
-        
-        <h2>Welcome to Pune Institute of Computer Technology</h2>
-        <p>Pune Institute of Computer Technology (abbreviated as PICT), is a private engineering college located in Dhankawadi, Pune, India. Established by the Society for Computer Technology and Research (SCTR) in 1983, it offers courses in Computer Engineering, Information Technology, and Electronics and Telecommunication Engineering.</p>
-
-        <div data-role="collapsibleset">
-            <div data-role="collapsible" data-collapsed="false">
-                <h3>Quick Links</h3>
-                <ul data-role="listview" data-inset="true">
-            <li><a href="about.html" data-transition="slide" data-ajax="false">About Us</a></li>
-            <li><a href="academics.html" data-transition="slide" data-ajax="false">Academics & Departments</a></li>
-            <li><a href="contact.html" data-transition="slide" data-ajax="false">Contact Us</a></li>
-                </ul>
-            </div>
-            <div data-role="collapsible" data-collapsed="true">
-                <h3>Why Choose PICT?</h3>
-                <ul>
-                    <li>Premier engineering institute established in 1983</li>
-                    <li>World-class faculty and researchers</li>
-                    <li>100% placement record</li>
-                    <li>Strong industry-academia partnerships</li>
-                    <li>State-of-the-art labs and facilities</li>
-                </ul>
-            </div>
+        <div data-role="collapsible">
+            <h3>Information Technology</h3>
+            <p>Focus on networking, data systems, and IT solutions.</p>
         </div>
+
+        <div data-role="collapsible">
+            <h3>ENTC</h3>
+            <p>Focus on electronics and communication systems.</p>
+        </div>
+
     </div>
 
-    <div data-role="footer" data-position="fixed" class="footer-bg">
-        <h4>&copy; 2026 Pune Institute of Computer Technology</h4>
+</div>
+
+<!-- CONTACT PAGE -->
+<div data-role="page" id="contact">
+
+    <div data-role="header" data-theme="b">
+        <h1>Contact</h1>
     </div>
+
+    <!-- Navbar -->
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about" data-transition="slide">About</a></li>
+            <li><a href="#courses" data-transition="fade">Courses</a></li>
+            <li><a href="#dept" data-transition="flip">Departments</a></li>
+            <li><a href="#contact" class="ui-btn-active" data-transition="pop">Contact</a></li>
+        </ul>
+    </div>
+
+    <div data-role="content">
+        <p><b>Address:</b> Dhankawadi, Pune</p>
+        <p><b>Email:</b> pict@college.com</p>
+        <p><b>Phone:</b> 1234567890</p>
+    </div>
+
 </div>
 
 </body>

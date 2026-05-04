@@ -1,93 +1,81 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Reviews</title>
 
-    <!-- jQuery Mobile -->
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- jQuery Mobile CSS -->
+    <link rel="stylesheet" href="jquery.mobile.min.css">
 
+<script src="jquery.min.js"></script>
+<script src="jquery.mobile.min.js"></script>
 </head>
 
 <body>
 
-    <nav class="top-nav">
-        <div class="nav-brand">Movie Reviews</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#movies">Movies</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- Page -->
+<div data-role="page">
 
-    <header class="hero">
-        <p class="tag">Creative Board</p>
-        <h1>Movie Reviews</h1>
-        <p class="subtitle">A simple jQuery Mobile page inspired by the clean Pinterest-style layout.</p>
-    </header>
+    <!-- Header -->
+    <div data-role="header" data-theme="b">
+        <h1>Movies</h1>
+    </div>
 
-    <main class="gallery" id="movies">
-        <article class="pin">
-            <img src="https://picsum.photos/seed/movie1/600/840" alt="Avengers movie poster">
-            <div class="body">
-                <h3>Avengers</h3>
-                <p><b>Genre:</b> Action</p>
-                <p>Superheroes save the world with high-energy visuals and fast pacing.</p>
-                <div class="reviews">
-                    <div class="review">★★★★ — Fun summer blockbuster.</div>
-                </div>
-            </div>
-        </article>
+    <!-- Content -->
+    <div data-role="content">
 
-        <article class="pin">
-            <img src="https://picsum.photos/seed/movie2/600/960" alt="Interstellar movie poster">
-            <div class="body">
-                <h3>Interstellar</h3>
-                <p><b>Genre:</b> Sci-Fi</p>
-                <p>A thoughtful space journey with strong emotions and scale.</p>
-                <div class="reviews">
-                    <div class="review">★★★★★ — Epic and emotional.</div>
-                </div>
-            </div>
-        </article>
+        <!-- Movie 1 -->
+        <div data-role="collapsible">
+            <h3>Inception</h3>
+            <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" width="30%">
+            <p><b>Genre:</b> Sci-Fi, Action</p>
+            <p><b>Summary:</b> A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.</p>
+            <p><b>Review:</b> A mind-bending masterpiece with stunning visuals and a complex, gripping plot. Christopher Nolan at his best.</p>
+        </div>
 
-        <article class="pin">
-            <img src="https://picsum.photos/seed/movie3/600/780" alt="3 Idiots movie poster">
-            <div class="body">
-                <h3>3 Idiots</h3>
-                <p><b>Genre:</b> Comedy/Drama</p>
-                <p>College life, friendship, and a fun message about learning.</p>
-                <div class="reviews">
-                    <div class="review">★★★★★ — Heartfelt and hilarious.</div>
-                </div>
-            </div>
-        </article>
+        <!-- Movie 2 -->
+        <div data-role="collapsible">
+            <h3>The Dark Knight</h3>
+            <img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg" width="30%">
+            <p><b>Genre:</b> Action, Crime, Drama</p>
+            <p><b>Summary:</b> When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.</p>
+            <p><b>Review:</b> Heath Ledger's Joker is legendary. It transcends the superhero genre with its deep themes and intense action.</p>
+        </div>
 
-        <article class="pin">
-            <img src="https://picsum.photos/seed/movie4/600/900" alt="Inception movie poster">
-            <div class="body">
-                <h3>Inception</h3>
-                <p><b>Genre:</b> Thriller</p>
-                <p>A layered dream concept with an engaging screenplay.</p>
-                <div class="reviews">
-                    <div class="review">★★★★★ — Smart and stylish.</div>
-                </div>
-            </div>
-        </article>
-    </main>
+        <!-- Movie 3 -->
+        <div data-role="collapsible">
+            <h3>Interstellar</h3>
+            <img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" width="30%">
+            <p><b>Genre:</b> Sci-Fi, Adventure</p>
+            <p><b>Summary:</b> When Earth becomes uninhabitable, a farmer and ex-pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.</p>
+            <p><b>Review:</b> Visually spectacular and emotionally powerful. A grand space odyssey about love, time, and human survival.</p>
+        </div>
 
-    <!-- Popular genres section removed per request -->
+        <!-- Movie 4 -->
+        <div data-role="collapsible">
+            <h3>Parasite</h3>
+            <img src="https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg" width="30%">
+            <p><b>Genre:</b> Comedy, Drama, Thriller</p>
+            <p><b>Summary:</b> Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.</p>
+            <p><b>Review:</b> A brilliant commentary on class struggle. It's funny, dark, and utterly unpredictable. A must-watch masterpiece.</p>
+        </div>
 
-    <section class="hero" id="contact" style="margin-top: 18px;">
-        <p class="tag">Get In Touch</p>
-        <h1>Contact</h1>
-        <p class="subtitle">Email: moviereviews@example.com</p>
-    </section>
+        <!-- Movie 5 -->
+        <div data-role="collapsible">
+            <h3>Spiderman: Into the Spiderverse</h3>
+            <img src="https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_.jpg" width="30%">
+            <p><b>Genre:</b> Animation, Action</p>
+            <p><b>Summary:</b> Teen Miles Morales becomes the Spider-Man of his universe and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.</p>
+            <p><b>Review:</b> The most visually creative animated film in years. It’s vibrant, heartfelt, and perfectly captures the comic book feel.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div data-role="footer" data-theme="b">
+        <h4>Trending reviews</h4>
+    </div>
+
+</div>
 
 </body>
 </html>

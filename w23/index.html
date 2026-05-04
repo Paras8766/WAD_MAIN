@@ -1,92 +1,60 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>PICT Clubs & Activities</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>PICT Clubs</title>
+
+    <!-- jQuery Mobile CSS -->
+    <link rel="stylesheet" href="jquery.mobile.min.css">
+
+<script src="jquery.min.js"></script>
+<script src="jquery.mobile.min.js"></script>
 </head>
+
 <body>
-  <header class="site-header">
-    <h1>PICT Clubs & Activities</h1>
-    <p class="subtitle">Discover student clubs at PICT — modern, mobile-first</p>
-  </header>
 
-  <main class="container">
-    <section id="clubs" class="clubs-list">
+<!-- Page -->
+<div data-role="page">
 
-      <!-- ACM Club -->
-      <article class="club-card">
-        <a class="card-link" href="acm.html">
-            <img class="club-img" src="images/acm.jpg" alt="coding session">
-          <div class="club-body">
-            <h3>ACM Club</h3>
-            <p class="desc">A community for competitive programmers, learners, and mentors. Regular practice sessions and hack nights.</p>
-            <span class="view-btn">View details</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- IEEE Club -->
-      <article class="club-card">
-        <a class="card-link" href="ieee.html">
-            <img class="club-img" src="images/ieee.jpg" alt="electronics workshop">
-          <div class="club-body">
-            <h3>IEEE Club</h3>
-            <p class="desc">Hands-on electronics, IoT and hardware projects. Workshops on sensors, PCB design and embedded systems.</p>
-            <span class="view-btn">View details</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- AWS Club -->
-      <article class="club-card">
-        <a class="card-link" href="aws.html">
-            <img class="club-img" src="images/aws.jpg" alt="cloud study">
-          <div class="club-body">
-            <h3>AWS Club</h3>
-            <p class="desc">Cloud learning group focusing on AWS services, certifications, and cloud-native development.</p>
-            <span class="view-btn">View details</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- Pictoreal Club -->
-      <article class="club-card">
-        <a class="card-link" href="pictoreal.html">
-            <img class="club-img" src="images/pictoreal.jpg" alt="photography">
-          <div class="club-body">
-            <h3>Pictoreal Club</h3>
-            <p class="desc">Photography club exploring campus life, events and creative editing workshops.</p>
-            <span class="view-btn">View details</span>
-          </div>
-        </a>
-      </article>
-
-      <!-- Art Circle -->
-      <article class="club-card">
-        <a class="card-link" href="artcircle.html">
-            <img class="club-img" src="images/artcircle.jpg" alt="dance rehearsal">
-          <div class="club-body">
-            <h3>Art Circle</h3>
-            <p class="desc">Dance, drama and performing arts collective. Regular rehearsals and college stage events.</p>
-            <span class="view-btn">View details</span>
-          </div>
-        </a>
-      </article>
-
-    </section>
-  </main>
-
-  <!-- Image Modal -->
-  <div id="imgModal" class="modal" aria-hidden="true">
-    <div class="modal-content">
-      <button class="close-modal">×</button>
-      <img id="modalImg" src="" alt="expanded image">
+    <!-- Header -->
+    <div data-role="header" data-theme="b">
+        <h1>PICT Clubs</h1>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- Content -->
+    <div data-role="content">
+
+        <!-- Coding Club -->
+        <div data-role="collapsible">
+            <h3>Coding Club</h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoXSfbQM_YIY3WQdk04pLfV3VScNvAw4t4tQ&s"  width="200px">
+            <p><b>Description:</b> Focuses on programming, hackathons, and coding competitions.</p>
+            <p><b>Achievements:</b> Winners of Smart India Hackathon, CodeChef contests.</p>
+        </div>
+
+        <!-- Robotics Club -->
+        <div data-role="collapsible">
+            <h3>Robotics Club</h3>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/bb908f12412471.56268abbb66ed.png" width="200px">
+            <p><b>Description:</b> Builds robots and participates in technical competitions.</p>
+            <p><b>Achievements:</b> Winners in Robocon and national robotics events.</p>
+        </div>
+
+        <!-- Dance Club -->
+        <div data-role="collapsible">
+            <h3>Dance Club</h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAD479gvTVcog_aJa8gpwaPh6J2iH7mJza-w&s" width="200px" >
+            <p><b>Description:</b> Promotes dance forms like hip-hop, classical, and freestyle.</p>
+            <p><b>Achievements:</b> Winners in inter-college cultural fests.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div data-role="footer" data-theme="b">
+        <h4>PICT Pune</h4>
+    </div>
+
+</div>
+
 </body>
 </html>
