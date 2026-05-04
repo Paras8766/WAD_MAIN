@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const studentRoutes = require("./routes/studentRoutes");
 
 const app = express();
 
@@ -10,7 +11,7 @@ connectDB();
 app.use(express.json());
 
 // Routes
-app.use("/", require("./routes/studentRoutes"));
+app.use("/", studentRoutes);
 
 // Start server
 app.listen(3000, () => {
