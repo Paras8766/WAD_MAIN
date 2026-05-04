@@ -1,15 +1,18 @@
 const express = require("express");
 const connectDB = require("./config/db");
-const songRoutes = require("./routes/songRoutes");
 
 const app = express();
 
+// Connect DB
 connectDB();
 
+// Middleware
 app.use(express.json());
 
-app.use("/", songRoutes);  
+// Routes
+app.use("/", require("./routes/employeeRoutes"));
 
+// Start server
 app.listen(3000, () => {
-    console.log("Server running on port 3000");
+    console.log("Server running on http://localhost:3000");
 });
