@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>To-Do List</h1>
+
+  <div class="add-task">
+    <input [(ngModel)]="newTask" placeholder="Enter a task" />
+    <button (click)="addTask()">Add</button>
+  </div>
+
+  <ul>
+    @for (task of tasks; track task; let i = $index) {
+      <li>
+        <span [hidden]="editIndex === i">{{ task }}</span>
+        <input [hidden]="editIndex !== i" [(ngModel)]="editTask" />
+        <button [hidden]="editIndex === i" (click)="startEdit(i)">Edit</button>
+        <button [hidden]="editIndex !== i" (click)="saveEdit()">Save</button>
+        <button (click)="deleteTask(i)">Delete</button>
+      </li>
+    } @empty {
+      <p class="empty">No tasks yet. Add one above!</p>
+    }
+  </ul>
+</div>
