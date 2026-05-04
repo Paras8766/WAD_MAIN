@@ -1,129 +1,113 @@
-Here’s a **clean, direct, no-fluff guide** you can copy into `guide.txt` and follow to build the app in Salesforce.
+1. Login to Salesforce
 
----
+2. Click ⚙️ (top right) → click **Setup**
 
-# 📄 Student Management System – Salesforce (Step-by-Step)
+3. In Setup, go to **Object Manager**
 
-## 1. Open Setup
+4. Click **Create → Custom Object**
 
-* Click ⚙️ → **Setup**
+5. Create first object:
 
----
+   * Label: Student
+   * Click Save
 
-## 2. Create Objects
+6. In Student object → go to **Fields & Relationships → New**
 
-### 2.1 Student Object
+7. Create fields in Student:
 
-* Setup → **Object Manager → Create → Custom Object**
-* Label: `Student` → Save
+   * Roll Number → Number → Next → Save
+   * Email → Email → Next → Save
+   * Phone → Phone → Next → Save
 
-**Add Fields:**
+8. Go back to Object Manager
 
-* Roll Number → Number (5,0)
-* Email → Email
-* Phone → Phone
+9. Click **Create → Custom Object**
 
----
+10. Create second object:
 
-### 2.2 Course Object
+    * Label: Course
+    * Save
 
-* Object Manager → Create → Custom Object
-* Label: `Course` → Save
+11. Add fields in Course:
 
-**Add Fields:**
+    * Course Name → Text → Save
+    * Duration → Number → Save
+    * Faculty Name → Text → Save
 
-* Course Name → Text (50)
-* Duration → Number
-* Faculty Name → Text (50)
+12. Again go to Object Manager
 
----
+13. Click **Create → Custom Object**
 
-### 2.3 Enrollment Object
+14. Create third object:
 
-* Object Manager → Create → Custom Object
-* Label: `Enrollment` → Save
+    * Label: Enrollment
+    * Save
 
-**Add Fields:**
+15. Add fields in Enrollment:
 
-* Enrollment Date → Date
-* Status → Picklist (Present, Absent)
+    * Enrollment Date → Date → Save
+    * Status → Picklist (Present, Absent) → Save
 
----
+16. In Enrollment → go to **Fields & Relationships → New**
 
-## 3. Create Relationships (IMPORTANT)
+17. Create relationship:
 
-### In Enrollment:
+    * Select Lookup Relationship
+    * Choose Student → Next → Save
 
-* Fields & Relationships → New
-* Lookup Relationship → **Student** → Save
-* Lookup Relationship → **Course** → Save
+18. Again click **New**
 
----
+19. Create second relationship:
 
-## 4. Create Tabs
+    * Lookup Relationship
+    * Choose Course → Next → Save
 
-* Setup → Search **Tabs**
-* Under Custom Object Tabs → New
+20. Go to Setup search → type **Tabs**
 
-Create:
+21. Open Tabs → under Custom Object Tabs click **New**
 
-* Student Tab
-* Course Tab
-* Enrollment Tab
+22. Create tabs:
 
----
+    * Student tab
+    * Course tab
+    * Enrollment tab
 
-## 5. Create App
+23. Go to **App Manager**
 
-* Setup → **App Manager → New Lightning App**
+24. Click **New Lightning App**
 
-Fill:
+25. Enter:
 
-* Name: `Student Management System`
+    * App Name: Student Management System
 
-Click Next until **Navigation Items**
+26. Click Next until Navigation Items screen
 
-Add:
+27. Add:
 
-* Student
-* Course
-* Enrollment
+    * Student
+    * Course
+    * Enrollment
 
-Select Profile:
+28. Select profile:
 
-* System Administrator
+    * System Administrator
 
-→ Save
+29. Click Save
 
----
+30. Click App Launcher (🔲)
 
-## 6. Open App
+31. Search and open:
 
-* Click 🔲 App Launcher
-* Search: `Student Management System`
-* Open
+    * Student Management System
 
----
+32. Click Student tab → New → add student → Save
 
-## 7. Add Data (Test)
+33. Click Course tab → New → add course → Save
 
-### Add Student
+34. Click Enrollment tab → New
 
-* Student → New
-* Name, Roll No, Email → Save
+35. Select Student and Course → add date and status → Save
 
-### Add Course
 
-* Course → New
-* Course Name, Duration → Save
 
-### Add Enrollment
-
-* Enrollment → New
-* Select Student + Course
-* Date, Status → Save
-
----
----
-
-If you follow this exactly, your app **will work 100%**.
+42. Application complete and tested
