@@ -6,11 +6,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const usersPath = "users.json";
-
 app.get("/api/users", (req, res) => {
   try {
-    const data = fs.readFileSync(usersPath, "utf8");
+    const data = fs.readFileSync("users.json", "utf8");
     res.json(JSON.parse(data));
   } catch (error) {
     res.status(500).json({ error: "Failed to read data" });
