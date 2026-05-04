@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --ink: #1a1717;
     --brand: #c73a2d;
     --brand-soft: #f4ddd4;
@@ -183,5 +183,100 @@ h1 {
 @media (max-width: 460px) {
     .gallery {
         column-count: 1;
+    }
+}
+ */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background: #fff7f0;
+    padding: 20px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    padding: 6px 10px;
+}
+
+.nav-links a:hover {
+    background: #f4ddd4;
+    border-radius: 5px;
+}
+
+.hero {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1 {
+    margin: 10px 0;
+}
+
+.gallery {
+    column-count: 4;
+    column-gap: 15px;
+}
+
+.pin {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pin img {
+    width: 100%;
+    display: block;
+}
+
+.pin p {
+    padding: 10px;
+    font-weight: bold;
+}
+
+@media(max-width:900px) {
+    .gallery {
+        column-count: 2;
+    }
+}
+
+@media(max-width:500px) {
+    .gallery {
+        column-count: 1;
+    }
+
+    .top-nav {
+        flex-direction: column;
+        gap: 10px;
     }
 }
